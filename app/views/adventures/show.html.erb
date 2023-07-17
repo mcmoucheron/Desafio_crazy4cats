@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @adventure %>
+
+<div>
+  <%= link_to "Edit this adventure", edit_adventure_path(@adventure) %> |
+  <%= link_to "Back to adventures", adventures_path %>
+
+  <%= button_to "Destroy this adventure", @adventure, method: :delete %>
+
+  <% Adventure::Kinds.each do |kind| %>
+      <%= button_to "#{Adventure::KindsSpanish[kind]}",
+    new_user_reaction_path(adventure_id: @adventure.id, reaction_type:
+    "adventure", kind: kind), method: :post %>
+  <% end %>
+</div>
+
+<%= render 'comments/form' %>
+
+<h2>Comments</h2>
+  <% @adventure.comments.each do |comment| %>
+    <p><%= comment.content %></p>
+<% end %>
+
+<h2>Reactions</h2>
+<ul>
+  <li>
+    Like: <%= @adventure.reactions.where(kind: 'like').count %>
+  </li>
+  <li>
+    Dislike: <%= @adventure.reactions.where(kind: 'dislike').count %>
+  </li>
+</ul>

@@ -1,0 +1,33 @@
+<div id="<%= dom_id adventure %>">
+
+  <p>
+    <strong>Title:</strong>
+    <%= adventure.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= adventure.description %>
+  </p>
+
+  <p>
+    <strong>Place:</strong>
+    <%= adventure.place %>
+  </p>
+
+  <p>
+    <strong>When went:</strong>
+    <%= adventure.when_went %>
+  </p>
+
+  <h2>Comments</h2>
+    <% @comments.each do |comment| %>
+      <p><%= comment.content %></p>
+  <% end %>
+
+  <h2>Reactions</h2>
+    <% @reactions.each do |reaction| %>
+      <p><%= reaction.kind %></p>
+  <% end %>
+
+</div>

@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Adventures</h1>
+
+<div class="d-flex justify-content-end">
+  <%= link_to "New Adventure", new_adventure_path, class: "btn btn-primary" %>
+</div>
+
+<div id="adventures">
+  <% @adventures.each do |adventure| %>
+    <%= render adventure %>
+    <p>
+      <%= link_to "Show this adventure", adventure %>
+    </p>
+  <% end %>
+</div>
+
